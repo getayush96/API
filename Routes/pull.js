@@ -1,4 +1,4 @@
-// This is the Route Which implements API 1
+// This is the Route Which implements API 1.
 
 var router = express.Router();
 router.get('/tweets',function(req,res,next){						
