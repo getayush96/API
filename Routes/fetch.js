@@ -1,4 +1,4 @@
-// This route returns the required API2 & API3 ( API 3 Proceeds same as API2 , the only difference is the way data is returned to user)
+// This route returns the required API2 & API3 ( API 3 Proceeds same as API2, the only difference is the way data is returned to user)
 
 var router = express.Router();
 router.get('/:type',function(req,res,next){
