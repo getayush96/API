@@ -1,0 +1,20 @@
+{
+  "name": "api_assignment",
+  "version": "1.0.0",
+  "description": "This is the backend assignemnt ",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "go": "nodemon index.js"
+  },
+  "author": "AyushMaheshwari",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "json2csv": "^3.11.5",
+    "mongoose": "^5.0.6",
+    "nodemon": "^1.15.1",
+    "twit": "^2.2.9"
+  }
+}
