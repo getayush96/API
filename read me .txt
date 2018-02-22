@@ -1,0 +1,71 @@
+// Documentation 
+
+// The developed API has all the three features as per the task. 
+// It uses  * TWITTER STREAMING
+	    	* MONGO DB (no sql)
+			* CSV export to export the data 
+			* Node JS (Express Framework)
+			
+// The API 1 uses the Twit library to fetch the data from the twitter via streaming. The api keeps fetching the live data 
+   and storing it in the database until a limit is reached (default 20). The Route code is in the ./Routes/Pull File
+   
+   The API 2 searches the data as per the request, filters it and return the result in the json format. The Route code is in the ./Route/Fetch file
+   
+   the API 3 gives the option to download the data ( as per request and filters ) in the CSV format. The Route code is in the ./Route/Fetch file
+   
+// All the files have been  extensively commented so as to facilitate easy understanding of the code. The Use of API has been described below
+
+
+// Understanding the Routes: 
+		* General API 1 Route is http://host/pull/tweet
+			---PARAMETER------------SUPPORTED-------------DESCRIPTION-------------------------------------------
+				type				 all,hash				Matches the tweets which containes the given string 
+				
+				
+				Q					 ----					The String which you want to search 
+				
+			----------------------------------------------------------------------------------------------------
+			SAMPLE QUERIES : http://host/pull/tweet?type=hash&q=namo
+						   : http://host/pull/tweet?type=all&q=timeliners
+
+		
+		* General API 2 Route is http://host/fetch/json
+			---PARAMETER------------SUPPORTED-------------DESCRIPTION-------------------------------------------
+				Q				     ----					The String You Want To Match 
+				
+				match		     	 exact,start,end		Matching condition (if not specified, Search gives 'contains' result)
+				
+				sdate				 yy-mm-dd				Tweets which were created after given date 
+				
+				edate				 yy-mm-dd				Tweets which were created before given date
+				
+				rtcount				 e-- , l-- , g--        Retween count is equal, less or greater than given value (see sample queries below)
+				
+				favcount			 e-- , l-- , g--        Favourite count is equal, less or greater than given value (see sample queries below)	
+			
+				lang				 (Code of language)		Matches if the tweet is in the given language
+				
+			----------------------------------------------------------------------------------------------------
+			SAMPLE QUERIES : http://host/fetch/json?q=sherlock&match=exact
+						   : http://host/fetch/json?q=sherlock
+						   : http://host/fetch/json?q=sherlock&sdate=2017-02-2&edate=2018-02-22
+						   : http://host/fetch/json?q=sherlock&rtcount=g30      (retweet count >30)
+						   : http://host/fetch/json?q=sherlock&rtcount=e30      (retweet count ==30)
+						   : http://host/fetch/json?q=sherlock&favcount=e30     (favourite count <30)
+						   : http://host/fetch/json?q=sherlock&lang=en      	(language==english)
+
+		* General API 3 Route is http://host/fetch/csv
+			---PARAMETER------------SUPPORTED-------------DESCRIPTION-------------------------------------------
+				
+				//supports all the paramteres of API 2. The change is only the calling endpoint
+				
+			----------------------------------------------------------------------------------------------------
+			SAMPLE QUERIES : http://host/fetch/csv?q=flames
+			
+			
+// You can contact me on getayush96@gmail.com in case of any issues or discrepencies
+ 
+ 
+ 
+ 
+ 
