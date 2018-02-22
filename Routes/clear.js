@@ -1,4 +1,4 @@
-// This is the route to clear the database completely (for testing purposes)
+// This is the route to clear the database completely (for testing purposes).
 
 var router = express.Router();
 router.get('/',function(req,res,next){								//for the path x/
